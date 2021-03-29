@@ -8,7 +8,7 @@ const userRouter = require('./router/user.js');
 const app = express();
 const port = process.env.PORT;
 
-let whitelist = ['https://pritok.herokuapp.com', 'http://pritok.herokuapp.com'];
+let whitelist = ['https://pritok.herokuapp.com', 'http://pritok.herokuapp.com', 'http://localhost:8100'];
 let corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
