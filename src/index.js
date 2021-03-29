@@ -8,7 +8,12 @@ const userRouter = require('./router/user.js');
 const app = express();
 const port = process.env.PORT;
 
-app.use(cors());
+let corsOptions = {
+  origin: 'https://pritok.herokuapp.com',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(purchaseRouter, categoryRouter, userRouter);
