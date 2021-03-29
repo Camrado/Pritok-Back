@@ -8,9 +8,15 @@ const userRouter = require('./router/user.js');
 const app = express();
 const port = process.env.PORT;
 
+let whitelist = ['https://pritok.herokuapp.com', 'http://pritok.herokuapp.com'];
 let corsOptions = {
-  origin: 'https://pritok.herokuapp.com',
-  optionsSuccessStatus: 200
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 };
 
 app.use(cors(corsOptions));
