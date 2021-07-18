@@ -27,5 +27,3 @@ app.use(purchaseRouter, categoryRouter, userRouter);
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
 });
-
-// some new comment
